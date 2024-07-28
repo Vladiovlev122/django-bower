@@ -6,7 +6,7 @@ from django.conf import settings
 from django.utils.datastructures import OrderedSet
 
 
-def read_mains():
+def read_mains(request=None):
     for component in settings.BOWER_INSTALLED_APPS:
         component = component.split('#')[0]
         try:
