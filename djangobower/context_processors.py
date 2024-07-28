@@ -6,7 +6,7 @@ from django.conf import settings
 from django.utils.datastructures import OrderedSet
 
 
-def read_mains(request):
+def read_mains():
     for component in settings.BOWER_INSTALLED_APPS:
         component = component.split('#')[0]
         try:
@@ -23,7 +23,6 @@ def read_mains(request):
                         yield '%s/%s' % (component, m)
         except FileNotFoundError:
             continue
-    return {}
 
 
 def bower_components(request):
